@@ -6,7 +6,7 @@ Requirements:
 * Kind or Minikube
 
 For this tutorial, I will be using Kubernetes 1.21.
-If you are watching the old guide for Kuberentes 1.17, go [here](..\vault\readme.md)
+If you are watching the old guide for Kubernetes 1.17, go [here](..\vault\readme.md)
 
 Lets create a Kubernetes cluster to play with using [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
@@ -173,7 +173,8 @@ vault auth enable kubernetes
 vault write auth/kubernetes/config \
 token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
 kubernetes_host=https://${KUBERNETES_PORT_443_TCP_ADDR}:443 \
-kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+issuer="https://kubernetes.default.svc.cluster.local"
 exit
 ```
 
