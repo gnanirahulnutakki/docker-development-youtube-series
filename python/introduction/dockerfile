@@ -1,8 +1,8 @@
-FROM python:3.9.6-alpine3.13 as dev
+FROM python:alpine3.13 as dev
 
 WORKDIR /work
 
-FROM python:3.9.6-alpine3.13 as debugging
+FROM python:alpine3.13 as debugging
 
 # add a debugger
 
